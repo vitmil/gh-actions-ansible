@@ -1,0 +1,25 @@
+name: Run container Ansible
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: almalinux:latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: execute hostname
+        run: hostname
+
+      - name: install ansible 
+        run: |
+          dnf -y update
+          dnf -y install ansible
+
+      - name: Run playbook_1
+        run: |
+          ansible-playbook playbook_1.yaml
