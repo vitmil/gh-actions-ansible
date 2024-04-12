@@ -3,8 +3,10 @@ name: Install Ansible and run playbook
 on: [push]
 
 jobs:
-  build:
 
+  build:
+    if: github.ref == 'refs/heads/no-branch-for-skip' # skippo questo workflow
+    
     runs-on: ubuntu-22.04
 
     steps:

@@ -22,6 +22,7 @@ on: [push]
 
 jobs:
   build:
+    if: github.ref == 'refs/heads/no-branch-for-skip' # skippo questo workflow
     runs-on: ubuntu-latest
     container:
       image: ansible/ansible:ubuntu1404
