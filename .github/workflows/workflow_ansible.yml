@@ -26,13 +26,14 @@ on: [push]
 #         ansible-playbook playbook_1.yaml
         
 jobs:
+
   build:
     runs-on: ubuntu-latest
     container:
       image: ansible/ansible:ubuntu1404
     steps:
-    - name: Check out code
-      uses: actions/checkout@v2
+      - name: Check out code
+        uses: actions/checkout@v2
 
-    - name: Run Ansible playbook
-      run: ansible-playbook playbook_1.yaml
+      - name: Run Ansible playbook
+        run: ansible-playbook playbook_1.yaml
