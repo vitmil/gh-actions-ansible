@@ -40,3 +40,6 @@ jobs:
 
       - name: execute hostname
         run: hostname
+
+      - name: which ansible-playbook
+        run: which ansible-playbook
