@@ -11,12 +11,12 @@
     ansible.builtin.debug:
       msg: "Hello Ansible!"
 
-  - name: print ansible_hostname and ansible_default_ipv4.address
+  - name: print facts 
     ansible.builtin.debug:
       msg: "{{ item }}"
     loop:
-      - "{{ ansible_hostname }}"
-      - "{{ ansible_distribution }}" 
-      - "{{ ansible_distribution_release }}" 
-      - "{{ ansible_distribution_version }}"
-      #- "{{ ansible_default_ipv4.address }}"
+      - "ansible_hostname:              {{ ansible_hostname }}"
+      - "ansible_distribution:          {{ ansible_distribution }}" 
+      - "ansible_distribution_release:  {{ ansible_distribution_release }}" 
+      - "ansible_distribution_version:  {{ ansible_distribution_version }}"
+      #- "ansible_default_ipv4.address: {{ ansible_default_ipv4.address }}" # su container GH non definito
