@@ -3,11 +3,17 @@
 - name: palybook 1
   hosts: localhost
   connection: local 
-  gather_facts: False
+  gather_facts: True
 
   tasks:
 
   - name: print Hello Ansible
     ansible.builtin.debug:
       msg: "Hello Ansible!"
-      
+
+  - name: print ansible_hostname and ansible_default_ipv4.address
+    ansible.builtin.debug:
+      msg: "{{ item }}"
+    loop:
+      - "{{ ansible_hostname }}"
+      - "{{ ansible_default_ipv4.address }}"
