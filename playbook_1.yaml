@@ -16,4 +16,7 @@
       msg: "{{ item }}"
     loop:
       - "{{ ansible_hostname }}"
+      - "{{ ansible_distribution }}" 
+      - "{{ ansible_distribution_release }}" 
+      - "{{ ansible_distribution_version }}"
       #- "{{ ansible_default_ipv4.address }}"
