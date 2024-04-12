@@ -1,0 +1,13 @@
+---
+
+- name: palybook 1
+  hosts: localhost
+  connection: local 
+  gather_facts: False
+
+  tasks:
+
+  - name: print Hello Ansible
+    ansible.builtin.debug:
+      msg: "Hello Ansible!"
+      
