@@ -35,5 +35,8 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v2
 
-      - name: Run Ansible playbook
-        run: ansible-playbook playbook_1.yaml
+      # - name: Run Ansible playbook
+      #   run: ansible-playbook playbook_1.yaml
+
+      - name: execute hostname
+        run: hostname
