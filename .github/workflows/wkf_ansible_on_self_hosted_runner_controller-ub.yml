@@ -6,9 +6,8 @@ jobs:
 
   build:
     
-    #runs-on: controller-ub
-    #runs-on: self-hosted
-    runs-on: vps-ubuntu-ovh
+    runs-on: controller-ub-home.lab
+    #runs-on: vps-ubuntu-ovh
 
     steps:
     - name: Checkout code
