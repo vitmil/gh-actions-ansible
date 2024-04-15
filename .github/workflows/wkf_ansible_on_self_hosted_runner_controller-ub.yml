@@ -6,7 +6,8 @@ jobs:
 
   build:
     
-    runs-on: controller-ub
+    #runs-on: controller-ub
+    runs-on: self-hosted
 
     steps:
     - name: Checkout code
