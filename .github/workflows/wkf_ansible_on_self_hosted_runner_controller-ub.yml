@@ -1,4 +1,4 @@
-name: Install Ansible and run playbook
+name: Install Ansible and run playbook on self-hosted runner
 
 on: [push]
 
