@@ -1,4 +1,4 @@
-name: Install Ansible and run playbook on self-hosted runner
+name: run playbook on self-hosted runner
 
 on: [push]
 
@@ -6,8 +6,8 @@ jobs:
 
   build:
     
-    runs-on: controller-ub-home.lab
-    #runs-on: vps-ubuntu-ovh
+    #runs-on: controller-ub-home.lab
+    runs-on: vps-ubuntu-ovh
 
     steps:
     - name: Checkout code
