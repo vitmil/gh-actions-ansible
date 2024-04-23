@@ -9,7 +9,7 @@
 
   - name: print Hello Ansible
     ansible.builtin.debug:
-      msg: "Hello Ansible!"
+      msg: "Hello from Ansible Playbook 1"
 
   - name: print facts 
     ansible.builtin.debug:

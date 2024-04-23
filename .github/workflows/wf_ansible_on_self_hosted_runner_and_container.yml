@@ -36,12 +36,12 @@ jobs:
         dnf update -y
         dnf install python3 -y 
 
-    # - name: print hostname by python script
-    #   run: |
-    #     python3 -c """
-    #     import socket  
-    #     print(socket.gethostname())
-    #     """
+    - name: print hostname by python script
+      run: |
+        python3 -c """
+        import socket  
+        print(socket.gethostname())
+        """
 
 
     - name: Install Ansible if not present
