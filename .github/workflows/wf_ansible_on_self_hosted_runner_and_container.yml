@@ -33,7 +33,7 @@ jobs:
     
     - name: print hostname by python script
       run: |
-        python -c """
+        python3 -c """
         import socket  
         print(socket.gethostname())
         """
