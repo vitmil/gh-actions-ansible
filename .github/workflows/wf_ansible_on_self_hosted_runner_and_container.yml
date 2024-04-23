@@ -3,10 +3,23 @@ name: run ansible-playbook on self-hosted runner
 on: [push]
 
 jobs:
-  job_1:
+  #job_1:
     #if: github.ref == 'refs/heads/no-branch-for-skip' # skippo questo workflow 
     #runs-on: controller-ub-home.lab
+    #runs-on: vps-ubuntu-ovh
+  container-test-job:
+    #if: github.ref == 'refs/heads/no-branch-for-skip' # skippo questo workflow 
+    #runs-on: ubuntu-latest
     runs-on: vps-ubuntu-ovh
+    container:
+      image: almalinux:latest
+      env:
+        NODE_ENV: development
+      #ports:
+      #  - 80
+      #volumes:
+      #  - my_docker_volume:/volume_mount
+      #options: --cpus 1
 
     steps:
     - name: Checkout code
