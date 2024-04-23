@@ -28,7 +28,7 @@ jobs:
       - name: Esegui playbook Ansible
         id: esegui-playbook
         run: |
-          ansible-playbook playbook_1.yml
+          ansible-playbook playbook_1.yaml
 
 
   jobs_2_se_successo:
@@ -39,7 +39,7 @@ jobs:
       - name: esegue playbbok 2
         id: esegui-playbook
         run: |
-          ansible-playbook playbook_2.yml
+          ansible-playbook playbook_2.yaml
 
     #   - name: Invia notifica via email in caso di successo
     #     uses: actions/notify@v2
