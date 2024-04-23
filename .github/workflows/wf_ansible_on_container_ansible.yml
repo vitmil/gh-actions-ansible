@@ -9,7 +9,7 @@
 ## Va installato:
 ## apt update && apt install ansible
 ## 
-## TODO TROUBLE / ERROR
+## TODO ERROR
 ##  The default action is to keep your current version.
 ## *** hosts (Y/I/N/O/D/Z) [default=N] ? dpkg: error processing package ansible (--configure):
 ##  EOF on stdin at conffile prompt
@@ -21,7 +21,7 @@ name: Run container Ansible
 on: [push]
 
 jobs:
-  build:
+  job_1:
     if: github.ref == 'refs/heads/no-branch-for-skip' # skippo questo workflow
     runs-on: ubuntu-latest
     container:

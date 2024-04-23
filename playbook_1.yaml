@@ -22,10 +22,3 @@
       - "ansible_distribution_version: {{ ansible_distribution_version }}"
       #- "ansible_default_ipv4.address: {{ ansible_default_ipv4.address }}" # su container GH non definito
 
-
-  - name: rename vars
-    vars:
-      nuova_1: "{{ ansible_hostname }}"
-    ansible.builtin.debug:
-      msg: "{{ nuova_1 }}"
-    
