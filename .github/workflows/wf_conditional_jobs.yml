@@ -8,17 +8,18 @@ jobs:
   job_1_esegui_playbook:
     #runs-on: ubuntu-latest
     runs-on: vps-ubuntu-ovh
-    container:
-      image: almalinux:latest
+    # container:
+    #   image: almalinux:latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # - name: Imposta container AlmaLinux-9
-      #   uses: docker/setup-qemu@v2
-      #   with:
-      #     image: quay.io/almalinux/almalinux:9
+      - name: Esegui il comando Docker
+        docker:
+          image: ubuntu:latest
+          run: 
+            - echo "Hello, world!"
 
       - name: Installa Ansible se non presente
         run: |
