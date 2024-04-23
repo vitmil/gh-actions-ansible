@@ -6,6 +6,7 @@ on:
 
 jobs:
   job_1_esegui_playbook:
+    if: github.ref == 'refs/heads/no-branch-for-skip' # skippo questo workflow
     runs-on: vps-ubuntu-ovh
     steps:          
       - name: Checkout repository
@@ -20,6 +21,7 @@ jobs:
         id: job_1_esegui_playbook
         run: |
           ansible-playbook playbook_1.yaml
+          
   jobs_2_se_successo:
     runs-on: vps-ubuntu-ovh
     if: success() 
