@@ -8,8 +8,8 @@ jobs:
   job_1_esegui_playbook:
     #runs-on: ubuntu-latest
     runs-on: vps-ubuntu-ovh
-    container:
-      image: almalinux:latest
+    # container:
+    #   image: almalinux:latest
 
     steps:
       - name: Checkout repository
@@ -44,9 +44,9 @@ jobs:
         run: |
           ansible-playbook playbook_2.yaml
 
-      - name: Invia notifica via email in caso di successo
-        uses: actions/notify@v2
-        with:
-          email: utente@example.com
-          subject: Playbook Ansible eseguito con successo!
-          body: Il playbook Ansible è stato eseguito con successo sul branch ${{ github.event.ref.name }}.
+      # - name: Invia notifica via email in caso di successo
+      #   uses: actions/notify@v2
+      #   with:
+      #     email: utente@example.com
+      #     subject: Playbook Ansible eseguito con successo!
+      #     body: Il playbook Ansible è stato eseguito con successo sul branch ${{ github.event.ref.name }}.
