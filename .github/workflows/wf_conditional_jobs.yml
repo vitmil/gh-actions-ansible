@@ -5,9 +5,11 @@ on:
     branches: [ main ]
 
 jobs:
-  esegui-playbook:
+  job_1_esegui_playbook:
     #runs-on: ubuntu-latest
     runs-on: vps-ubuntu-ovh
+    container:
+      image: almalinux:latest
 
     steps:
       - name: Checkout repository
@@ -25,7 +27,7 @@ jobs:
             pip install ansible
           fi
 
-      - name: Esegui playbook Ansible
+      - name: Esegue playbook Ansible
         id: esegui-playbook
         run: |
           ansible-playbook playbook_1.yaml
@@ -36,16 +38,15 @@ jobs:
     if: success() 
     needs: esegui-playbook
     steps:
-      - name: esegue playbbok 2
+
+      - name: esegue playbook 2
         id: esegui-playbook
         run: |
           ansible-playbook playbook_2.yaml
 
-    #   - name: Invia notifica via email in caso di successo
-    #     uses: actions/notify@v2
-    #     with:
-    #       email: utente@example.com
-    #       subject: Playbook Ansible eseguito con successo!
-    #       body: Il playbook Ansible è stato eseguito con successo sul branch ${{ github.event.ref.name }}.
-
-
+      - name: Invia notifica via email in caso di successo
+        uses: actions/notify@v2
+        with:
+          email: utente@example.com
+          subject: Playbook Ansible eseguito con successo!
+          body: Il playbook Ansible è stato eseguito con successo sul branch ${{ github.event.ref.name }}.
