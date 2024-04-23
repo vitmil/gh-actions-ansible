@@ -1,0 +1,57 @@
+name: Esegue Playbook Ansible e invia notifica in caso di successo
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  esegui-playbook:
+    #runs-on: ubuntu-latest
+    runs-on: vps-ubuntu-ovh
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Imposta container AlmaLinux-9
+        uses: docker/setup-qemu@v2
+        with:
+          image: quay.io/almalinux/almalinux:9
+
+      - name: Installa Ansible
+        run: |
+          dnf install -y ansible
+
+      - name: Esegui playbook Ansible
+        id: esegui-playbook
+        run: |
+          ansible-playbook playbook.yml
+
+      - name: Imposta condizione di successo del job
+        id: imposta-condizione
+        run: |
+          if [ $? -eq 0 ]; then
+            echo "::set-output name=success::true"
+          else
+            echo "::set-output name=success::false"
+          fi
+
+  invia-notifica-successo:
+    runs-on: vps-ubuntu-ovh
+    needs: esegui-playbook
+    if: steps.imposta-condizione.outputs.success == 'true'
+
+    steps:
+      - name: esegue playbbok 2
+        id: esegui-playbook
+        run: |
+          ansible-playbook playbook.yml
+
+    #   - name: Invia notifica via email in caso di successo
+    #     uses: actions/notify@v2
+    #     with:
+    #       email: utente@example.com
+    #       subject: Playbook Ansible eseguito con successo!
+    #       body: Il playbook Ansible è stato eseguito con successo sul branch ${{ github.event.ref.name }}.
+
+

@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   job_1:
-  #if: github.ref == 'refs/heads/no-branch-for-skip' # skippo questo workflow 
+    if: github.ref == 'refs/heads/no-branch-for-skip' # skippo questo workflow 
     #runs-on: controller-ub-home.lab
     runs-on: vps-ubuntu-ovh
 
@@ -20,7 +20,7 @@ jobs:
 
     - name: Install Ansible if not present
       run: |
-        if ! which ansible-playbook ; then 
+        if ! which ansible-playbook > /dev/null 2>&1 ; then 
           python -m pip install --upgrade pip
           pip install ansible
         fi
