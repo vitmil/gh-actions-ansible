@@ -31,9 +31,14 @@ jobs:
     - name: print hostname by bash command
       run: hostname
     
+    - name: install python (on container)
+      run: |
+        dnf update -y
+        dnf install python3 -y 
+        
     - name: print hostname by python script
       run: |
-        python3 -c """
+        python -c """
         import socket  
         print(socket.gethostname())
         """
