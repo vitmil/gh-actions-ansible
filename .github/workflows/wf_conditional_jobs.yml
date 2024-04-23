@@ -18,34 +18,28 @@ jobs:
         with:
           image: quay.io/almalinux/almalinux:9
 
-      - name: Installa Ansible
+      - name: Installa Ansible se non presente
         run: |
-          dnf install -y ansible
+          if ! which ansible-playbook > /dev/null 2>&1 ; then 
+            python -m pip install --upgrade pip
+            pip install ansible
+          fi
 
       - name: Esegui playbook Ansible
         id: esegui-playbook
         run: |
-          ansible-playbook playbook.yml
+          ansible-playbook playbook_1.yml
 
-      - name: Imposta condizione di successo del job
-        id: imposta-condizione
-        run: |
-          if [ $? -eq 0 ]; then
-            echo "::set-output name=success::true"
-          else
-            echo "::set-output name=success::false"
-          fi
 
-  invia-notifica-successo:
+  jobs_2_se_successo:
     runs-on: vps-ubuntu-ovh
+    if: success() 
     needs: esegui-playbook
-    if: steps.imposta-condizione.outputs.success == 'true'
-
     steps:
       - name: esegue playbbok 2
         id: esegui-playbook
         run: |
-          ansible-playbook playbook.yml
+          ansible-playbook playbook_2.yml
 
     #   - name: Invia notifica via email in caso di successo
     #     uses: actions/notify@v2
