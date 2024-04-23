@@ -28,7 +28,7 @@ jobs:
           fi
 
       - name: Esegue playbook Ansible
-        id: esegui-playbook
+        id: job_1_esegui_playbook
         run: |
           ansible-playbook playbook_1.yaml
 
@@ -36,7 +36,7 @@ jobs:
   jobs_2_se_successo:
     runs-on: vps-ubuntu-ovh
     if: success() 
-    needs: esegui-playbook
+    needs: job_1_esegui_playbook
     steps:
 
       - name: esegue playbook 2
