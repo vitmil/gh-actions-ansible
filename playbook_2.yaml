@@ -1,25 +1,14 @@
 ---
 
-- name: palybook 2
+- name: playbook 2
   hosts: localhost
   connection: local 
   gather_facts: True
 
   tasks:
 
-  - name: print Hello Ansible
+  - name: print something
     ansible.builtin.debug:
-      msg: "Hello Ansible!"
-
-  - name: print facts 
-    ansible.builtin.debug:
-      msg: "{{ item }}"
-    #with_items:
-    loop:
-      - "ansible_hostname: {{ ansible_hostname }}"
-      - "ansible_distribution: {{ ansible_distribution }}" 
-      - "ansible_distribution_release: {{ ansible_distribution_release }}" 
-      - "ansible_distribution_version: {{ ansible_distribution_version }}"
-      #- "ansible_default_ipv4.address: {{ ansible_default_ipv4.address }}" # su container GH non definito
+      msg: "Hello from Ansible Playbook 2"
 
       

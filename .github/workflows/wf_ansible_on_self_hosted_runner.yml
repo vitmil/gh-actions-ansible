@@ -1,4 +1,4 @@
-name: run playbook on self-hosted runner
+name: run ansible-playbook on self-hosted runner
 
 on: [push]
 

@@ -1,6 +1,6 @@
 ---
 
-- name: palybook 1
+- name: playbook 1
   hosts: localhost
   connection: local 
   gather_facts: True

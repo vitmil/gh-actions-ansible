@@ -1,4 +1,4 @@
-name: Run container almalinux
+name: Run ansible-playbook on container almalinux
 on: [push]
 
 jobs:
