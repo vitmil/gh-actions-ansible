@@ -13,10 +13,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Imposta container AlmaLinux-9
-        uses: docker/setup-qemu@v2
-        with:
-          image: quay.io/almalinux/almalinux:9
+      # - name: Imposta container AlmaLinux-9
+      #   uses: docker/setup-qemu@v2
+      #   with:
+      #     image: quay.io/almalinux/almalinux:9
 
       - name: Installa Ansible se non presente
         run: |
